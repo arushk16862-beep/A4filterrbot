@@ -672,6 +672,11 @@ async def verify_user(bot, userid, token):
     date_var, time_var = str(date_var).split(" ")
     await update_verify_status(user.id, date_var, temp_time)
 
+# peer id invaild fixxx
+from pyrogram import utils as pyroutils
+pyroutils.MIN_CHAT_ID = -999999999999
+pyroutils.MIN_CHANNEL_ID = -100999999999999
+
 async def check_verification(bot, userid):
     user = await bot.get_users(int(userid))
     if not await db.is_user_exist(user.id):
