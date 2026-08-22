@@ -2,7 +2,7 @@ class script(object):
     START_TXT = """Hᴇʟʟᴏ {},
 ɪ ᴀᴍ ᴀ ᴘᴏᴡᴇʀғᴜʟʟ ᴀᴜᴛᴏғɪʟᴛᴇʀ ʙᴏᴛ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴀɴᴅ ᴍᴀᴋᴇ ᴍᴇ ᴀɴ ᴀᴅᴍɪɴ ᴛʜᴇʀ ᴀɴᴅ ᴛʜᴇɴ ᴀᴍ ᴘʀᴏᴠɪᴅᴇ ᴍᴏᴠɪᴇs ᴛʜᴇʀᴇ
 
-✫𝐌𝐚𝐢𝐧𝐭𝐚𝐧𝐞𝐝 𝐁𝐲 ʟᴀʟʟᴜ_ᴛɢ"""
+✫¢яєαтє∂ fαx_ᴛɢ"""
 
     CHECK_TXT = """<b>Hᴇʏ 
 Hᴇʀᴇ Is Tʜᴇ Hᴇʟᴘ Fᴏʀ Mʏ Cᴏᴍᴍᴀɴᴅs.</b>"""
@@ -39,20 +39,20 @@ Some dank memes for fun or whatever!
 
     ABT_TXT = """🗽|𝔸𝔹𝕆𝕌𝕋 𝕄𝔼𝕊𝕊𝔸𝔾𝔼|🗽
 ●𝙸 𝙰𝚖 𝙰 𝙲𝚕𝚘𝚗𝚎 𝙱𝚘𝚝
-●𝙿𝚊𝚛𝚛𝚎𝚗𝚝 𝚋𝚘𝚝 𝙰𝚗𝚗𝚊𝙱𝚎𝚗
+●𝙿𝚊𝚛𝚛𝚎𝚗𝚝 𝚋𝚘𝚝 𝚊𝚗𝚐𝚎𝚕 𝚖𝚊𝚛𝚒𝚊
 ●𝙰𝚖 𝚅𝚎𝚛𝚢 𝙿𝚘𝚠𝚎𝚛𝙵𝚞𝚕𝚕
 
 🍿ᴀᴅᴅ ᴍᴇ ᴛᴏ yᴏᴜʀ ɢʀᴏᴜᴩ🍿"""
 
     ABU_TXT = """🗽|𝐀𝐁𝐎𝐔𝐓 𝐌𝐄𝐒𝐒𝐀𝐆𝐄|🗽
-●𝗢𝘄𝗻𝗲𝗿 ✰𝗟𝗮𝗹𝗹𝘂_𝗧𝗴
+●𝗢𝘄𝗻𝗲𝗿 ✰𝗳𝗮𝘅𝟴𝟴𝟴
 ●𝘀𝗲𝗿𝘃𝗲𝗿 ✰𝗛𝗲𝗿𝗼𝗸𝘂
-●𝗡𝗮𝗺𝗲 ✰𝗔𝗻𝗻𝗮𝗕𝗲𝗻
+●𝗡𝗮𝗺𝗲 ✰𝗮𝗻𝗴𝗲𝗹 𝗺𝗮𝗿𝗶𝗮
 
 😜í αm vєrч pσwєrfull😜"""
 
     ABOUT_TXT = """<b>✯ Mʏ Nᴀᴍᴇ: {}
-✯ Cʀᴇᴀᴛᴏʀ: <a href='https://t.me/Lallu_tgs'>Lallu_tg</a>
+✯ Cʀᴇᴀᴛᴏʀ: <a href='https://t.me/Laser_of_telegram'>fax_tg</a>
 ✯ Lɪʙʀᴀʀʏ: <a href='https://docs.pyrogram.org/'>Pʏʀᴏɢʀᴀᴍ</a>
 ✯ Lᴀɴɢᴜᴀɢᴇ: <a href='https://www.python.org/download/releases/3.0/'>Pʏᴛʜᴏɴ 3</a>
 ✯ DᴀᴛᴀBᴀsᴇ: <a href='https://www.mongodb.com/'>MᴏɴɢᴏDB</a>
