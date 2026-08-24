@@ -41,9 +41,9 @@ SPELL_CHECK = {}
 RULES_PICS =["https://telegra.ph/file/255fbc98b0ea8d7646826.jpg",
 ]
 
-req_channel = -1001903368684
+req_channel = -1003082828281
 
-FILE_CHANNEL_ID = -1001612403432
+FILE_CHANNEL_ID = -1002658908912
 
 SPELL_MODE = True
 
@@ -1214,10 +1214,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data == "start":
         buttons = [[
-                    InlineKeyboardButton('🕵️‍♂️ʜᴇʟʟ', callback_data="help")
+                    InlineKeyboardButton('𝗛𝗘𝗟𝗟𝗣', callback_data="help")
                 ],[
-                    InlineKeyboardButton('🙋‍♂️𝙾𝚠𝚗𝚎𝚛', url='t.me/benana_assistbot'),
-                    InlineKeyboardButton('🤷𝙰𝙱𝙾𝚄𝚃', callback_data="abt")
+                    InlineKeyboardButton('𝗢𝗪𝗡𝗘𝗥', url='t.me/benana_assistbot'),
+                    InlineKeyboardButton('𝗔𝗕𝗢𝗨𝗧', callback_data="abt")
                 ],[
                     InlineKeyboardButton('➕️𝙰𝙳𝙳 𝙼𝙴 𝚃𝙾 𝚄𝚁 𝙶𝚁𝙾𝚄𝙿➕️', url=f'http://t.me/{clonedme.U_NAME}?startgroup=true'),
                   ]]
