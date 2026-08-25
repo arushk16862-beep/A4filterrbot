@@ -1707,9 +1707,7 @@ async def help(client, message):
             reply_markup = InlineKeyboardMarkup(buttons)
             await query.message.edit_reply_markup(reply_markup)
     await query.answer(MSG_ALRT)
-
-
-    
+   
 async def auto_filter(client, msg, spoll=False):
     if not spoll:
         message = msg
