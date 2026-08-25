@@ -1696,17 +1696,27 @@ async def help(client, message):
                                          callback_data=f'setgs#max_btn#{settings["max_btn"]}#{str(grp_id)}'),
                     InlineKeyboardButton('10' if settings["max_btn"] else f'{MAX_B_TN}',
                                          callback_data=f'setgs#max_btn#{settings["max_btn"]}#{str(grp_id)}')
-                ],
-                [
-                    InlineKeyboardButton('SʜᴏʀᴛLɪɴᴋ',
-                                         callback_data=f'setgs#is_shortlink#{settings["is_shortlink"]}#{str(grp_id)}'),
-                    InlineKeyboardButton('✔ Oɴ' if settings["is_shortlink"] else '✘ Oғғ',
-                                         callback_data=f'setgs#is_shortlink#{settings["is_shortlink"]}#{str(grp_id)}')
                 ]
+                [
+                    btn = [
+                    [
+                        InlineKeyboardButton(
+                            text=f"{file.file_name}",
+                            url=await get_shortlink(
+                                message.chat.id,
+                                f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}"
+                            )
+                        ),
+                        InlineKeyboardButton(
+                            text=f"{get_size(file.file_size)}",
+                            url=await get_shortlink(
+                                message.chat.id,
+                                f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}"
+                            )
+                        ),
+                    ]
+                    for file in files
             ]
-            reply_markup = InlineKeyboardMarkup(buttons)
-            await query.message.edit_reply_markup(reply_markup)
-    await query.answer(MSG_ALRT)
    
 async def auto_filter(client, msg, spoll=False):
     if not spoll:
