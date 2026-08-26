@@ -15,6 +15,20 @@ mongo_client = MongoClient(DATABASE_URI)
 mongo_db = mongo_client["cloned_bots"]
 bots_col = mongo_db.bots
 
+@Client.on_message(filters.command("customize") & filters.private)
+async def customize_command(client, message):
+
+    if not is_owner(client.me.id, message.from_user.id):
+        return await message.reply_text(
+            "❌ You are not the owner of this clone."
+        )
+
+    await message.reply_text(
+        "<b>⚙️ Clone Customization</b>\n\n"
+        "Choose what you want to customize:",
+        reply_markup=main_menu()
+    )
+
 
 def get_settings(bot_id):
     bot = bots_col.find_one({"bot_id": bot_id})
