@@ -9,6 +9,10 @@ from info import DATABASE_URI
 
 logger = logging.getLogger(__name__)
 
+await message.reply_text(
+    f"BOT ID = {bot_id}\nSETTINGS = {settings}"
+)
+
 
 # ============================================================
 # DATABASE
