@@ -42,10 +42,10 @@ async def start(client, message):
         Clone = await get_bot()
     if len(message.command) != 2:
         buttons = [[
-                    InlineKeyboardButton('🕵️‍♂️ʜᴇʟᴘ', callback_data='help')
+                    InlineKeyboardButton('нєℓρ★', callback_data='ghelp')
                 ],[
-                    InlineKeyboardButton('🙋‍♂️𝙾𝚠𝚗𝚎𝚛', url='t.me/benana_assistbot'),
-                    InlineKeyboardButton('🤷𝙰𝙱𝙾𝚄𝚃', callback_data="abt")
+                    InlineKeyboardButton('σωиєя🍃', url='t.me/benana_assistbot'),
+                    InlineKeyboardButton('ᴀвσυт🌟', callback_data="abt")
                 ],[
                     InlineKeyboardButton('➕️𝙰𝙳𝙳 𝙼𝙴 𝚃𝙾 𝚄𝚁 𝙶𝚁𝙾𝚄𝙿➕️', url=f'http://t.me/{clonedme.U_NAME}?startgroup=true'),
                   ]]
