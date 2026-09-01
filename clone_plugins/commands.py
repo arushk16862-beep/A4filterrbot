@@ -42,27 +42,14 @@ async def start(client, message):
         Clone = await get_bot()
     if len(message.command) != 2:
         buttons = [[
-                    InlineKeyboardButton('нєℓρ★', callback_data='ghelp')
+                    InlineKeyboardButton('нєℓρ★', callback_data='gghelp')
                 ],[
-                    InlineKeyboardButton('σωиєя🍃', url='t.me/benana_assistbot'),
+                    InlineKeyboardButton('σωиєя🍃', url='t.me/laser_of_telegram'),
                     InlineKeyboardButton('ᴀвσυт🌟', callback_data="abt")
                 ],[
                     InlineKeyboardButton('➕️𝙰𝙳𝙳 𝙼𝙴 𝚃𝙾 𝚄𝚁 𝙶𝚁𝙾𝚄𝙿➕️', url=f'http://t.me/{clonedme.U_NAME}?startgroup=true'),
                   ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-     
-     @Client.on_message(filters.command(["check"]))
-async def help(client, message):
-        buttons = [[
-            InlineKeyboardButton('FIʟᴛᴇʀs', callback_data='filters'),
-            InlineKeyboardButton('Fɪʟᴇ Sᴛᴏʀᴇ', callback_data='store_file')
-        ], [
-            InlineKeyboardButton('Cᴏɴɴᴇᴄᴛɪᴏɴ', callback_data='coct'),
-            InlineKeyboardButton('Exᴛʀᴀ Mᴏᴅs', callback_data='extra')
-        ], [
-            InlineKeyboardButton('Hᴏᴍᴇ', callback_data='start'),
-            InlineKeyboardButton('Sᴛᴀᴛᴜs', callback_data='stats')
-        ]]    
+        reply_markup = InlineKeyboardMarkup(buttons)  
         await message.reply_text(
             text=script.CLONESTART_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
             reply_markup=reply_markup,
