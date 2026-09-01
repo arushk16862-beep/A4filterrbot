@@ -1,6 +1,6 @@
 import os
 import logging
-import gghelp
+from gghelp import gghelp
 import random
 import asyncio
 import datetime
