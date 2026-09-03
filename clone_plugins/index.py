@@ -141,50 +141,99 @@ async def index_files_to_db(lst_msg_id, chat, msg, bot):
     deleted = 0
     no_media = 0
     unsupported = 0
+
     async with lock:
         try:
             current = temp.CURRENT
-temp.CANCEL = False
+            temp.CANCEL = False
 
-history = bot.get_chat_history(
-    chat_id=chat,
-    offset_id=lst_msg_id
-)
+            async for message in bot.get_chat_history(
+                chat_id=chat,
+                offset_id=lst_msg_id
+            ):
 
-async for message in history:
-                    await msg.edit(f"Successfully Cancelled!!\n\nSaved <code>{total_files}</code> files to dataBase!\nDuplicate Files Skipped: <code>{duplicate}</code>\nDeleted Messages Skipped: <code>{deleted}</code>\nNon-Media messages skipped: <code>{no_media + unsupported}</code>(Unsupported Media - `{unsupported}` )\nErrors Occurred: <code>{errors}</code>")
+                if temp.CANCEL:
+                    await msg.edit(
+                        f"Successfully Cancelled!!\n\n"
+                        f"Saved <code>{total_files}</code> files to dataBase!\n"
+                        f"Duplicate Files Skipped: <code>{duplicate}</code>\n"
+                        f"Deleted Messages Skipped: <code>{deleted}</code>\n"
+                        f"Non-Media messages skipped: <code>{no_media + unsupported}</code>\n"
+                        f"Errors Occurred: <code>{errors}</code>"
+                    )
                     break
+
                 current += 1
+
                 if current % 20 == 0:
-                    can = [[InlineKeyboardButton('Cancel', callback_data='index_cancel')]]
-                    reply = InlineKeyboardMarkup(can)
+                    can = [[InlineKeyboardButton(
+                        "Cancel",
+                        callback_data="index_cancel"
+                    )]]
+
                     await msg.edit_text(
-                        text=f"Total messages fetched: <code>{current}</code>\nTotal messages saved: <code>{total_files}</code>\nDuplicate Files Skipped: <code>{duplicate}</code>\nDeleted Messages Skipped: <code>{deleted}</code>\nNon-Media messages skipped: <code>{no_media + unsupported}</code>(Unsupported Media - `{unsupported}` )\nErrors Occurred: <code>{errors}</code>",
-                        reply_markup=reply)
+                        text=(
+                            f"Total messages fetched: <code>{current}</code>\n"
+                            f"Total messages saved: <code>{total_files}</code>\n"
+                            f"Duplicate Files Skipped: <code>{duplicate}</code>\n"
+                            f"Deleted Messages Skipped: <code>{deleted}</code>\n"
+                            f"Non-Media messages skipped: <code>{no_media + unsupported}</code>\n"
+                            f"Errors Occurred: <code>{errors}</code>"
+                        ),
+                        reply_markup=InlineKeyboardMarkup(can)
+                    )
+
                 if message.empty:
                     deleted += 1
                     continue
-                elif not message.media:
+
+                if not message.media:
                     no_media += 1
                     continue
-                elif message.media not in [enums.MessageMediaType.VIDEO, enums.MessageMediaType.AUDIO, enums.MessageMediaType.DOCUMENT]:
+
+                if message.media not in [
+                    enums.MessageMediaType.VIDEO,
+                    enums.MessageMediaType.AUDIO,
+                    enums.MessageMediaType.DOCUMENT
+                ]:
                     unsupported += 1
                     continue
+
                 media = getattr(message, message.media.value, None)
+
                 if not media:
                     unsupported += 1
                     continue
+
                 media.file_type = message.media.value
                 media.caption = message.caption
-                aynav, vnay = await save_file(media)
-                if aynav:
-                    total_files += 1
-                elif vnay == 0:
-                    duplicate += 1
-                elif vnay == 2:
+
+                try:
+                    saved, result = await save_file(media)
+
+                    if saved:
+                        total_files += 1
+                    elif result == 0:
+                        duplicate += 1
+                    elif result == 2:
+                        errors += 1
+
+                except FloodWait as e:
+                    await asyncio.sleep(e.value)
+
+                except Exception:
                     errors += 1
+
         except Exception as e:
             logger.exception(e)
-            await msg.edit(f'Error: {e}')
+            await msg.edit(f"Error: {e}")
+
         else:
-            await msg.edit(f'Succesfully saved <code>{total_files}</code> to dataBase!\nDuplicate Files Skipped: <code>{duplicate}</code>\nDeleted Messages Skipped: <code>{deleted}</code>\nNon-Media messages skipped: <code>{no_media + unsupported}</code>(Unsupported Media - `{unsupported}` )\nErrors Occurred: <code>{errors}</code>')
+            await msg.edit(
+                f"Successfully saved <code>{total_files}</code> files to dataBase!\n"
+                f"Duplicate Files Skipped: <code>{duplicate}</code>\n"
+                f"Deleted Messages Skipped: <code>{deleted}</code>\n"
+                f"Non-Media messages skipped: <code>{no_media + unsupported}</code>\n"
+                f"Errors Occurred: <code>{errors}</code>"
+                )
+    
