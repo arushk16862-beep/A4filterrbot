@@ -41,7 +41,7 @@ SPELL_CHECK = {}
 RULES_PICS =["https://telegra.ph/file/255fbc98b0ea8d7646826.jpg",
 ]
 
-req_channel = 
+req_channel = -1003293176917
 
 FILE_CHANNEL_ID = -1003782044414
 
